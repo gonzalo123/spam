@@ -1,6 +1,8 @@
 Script to send personalized emails according to csv files.
 =========================================================
 
+[![Build Status](https://travis-ci.org/gonzalo123/spam.png?branch=master)](https://travis-ci.org/gonzalo123/spam)
+
 ## Installation
 * Run 'composer install' to install vendors.
 * Rename app/conf/conf.dist.yml to app/conf/conf.dist.yml and use your own parameters.
