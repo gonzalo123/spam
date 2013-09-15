@@ -58,4 +58,4 @@ Options:
 * Sending mails with swiftmailer
 * Twig templating engine to build message body
 * event dispatcher with symfony/event-dispatcher
-* testing event dispatcher
+* testing event dispatcher's events
