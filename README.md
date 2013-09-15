@@ -1,4 +1,4 @@
-Script to send personalized mails according to csv files.
+Script to send personalized emails according to csv files.
 =========================================================
 
 ## Installation

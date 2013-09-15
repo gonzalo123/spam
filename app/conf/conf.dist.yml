@@ -1,5 +1,5 @@
 parameters:
-  mail.list: mailList.csv
+  mail.list: %base.path%/mailList.csv
   mail.subject: mail subject
   mail.from.name: My Name
   mail.from.mail: my_email@mail.com
