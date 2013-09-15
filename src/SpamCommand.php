@@ -22,7 +22,7 @@ class SpamCommand extends Command
     {
         $output->writeln("Sending mails ...");
         $this->dispatcher->addListener(MailEvent::EVENT_MAIL_SENT, function (MailEvent $event) use ($output) {
-                $output->writeln("<info>Mail sent to</info>:<fg=black;bg=cyan>{$event->getTo()}</fg=black;bg=cyan>");
+                $output->writeln("<info>Mail sent to</info>: <fg=black;bg=cyan>{$event->getTo()}</fg=black;bg=cyan>");
             }
         );
 

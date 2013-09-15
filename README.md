@@ -12,7 +12,7 @@ Script to send personalized emails according to csv files.
 ## Run
 
 ```
-➜  spam  ./app/spam
+➜  spam git:(master) ./app/spam
 Console Tool
 
 Usage:
@@ -38,10 +38,9 @@ spam
 ```
 ➜  spam git:(master) ./app/spam help spam:run
 Usage:
- spam:run [--nomail]
+ spam:run
 
 Options:
- --nomail              Do not sent real mails
  --help (-h)           Display this help message.
  --quiet (-q)          Do not output any message.
  --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
@@ -58,3 +57,5 @@ Options:
 * Testing console applications
 * Sending mails with swiftmailer
 * Twig templating engine to build message body
+* event dispatcher with symfony/event-dispatcher
+* testing event dispatcher
