@@ -13,6 +13,7 @@ $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/conf'));
 $loader->load('services.yml');
 
 $container->setParameter('base.path', __DIR__);
+
 $application = new Application();
 $application->add($container->get('spam.command'));
 $application->run();
