@@ -1,0 +1,7 @@
+.idea
+vendor
+bin
+app/conf/conf.yml
+app/conf/conf.yml
+app/mailList.csv
+app/templates/mail.twig

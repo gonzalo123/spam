@@ -1,0 +1,24 @@
+imports:
+  - resource: conf.yml
+  - resource: mail.yml
+  - resource: twig.yml
+
+parameters:
+  base.path: .
+
+services:
+  parser:
+    class: Parser
+    calls:
+      - [createFromCsvFile, [%mail.list%]]
+
+  mailer:
+    class: Mailer
+    arguments: [@swift.mailer, @swift.message]
+
+  spam.command:
+    class: SpamCommand
+    calls:
+      - [setParser, [@parser]]
+      - [setTwig, [@twig]]
+      - [setMailer, [@mailer]]

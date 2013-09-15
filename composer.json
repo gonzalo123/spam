@@ -1,0 +1,32 @@
+{
+    "name": "gonzalo123/spam",
+    "description": "how to spam people. Katayunos marketing",
+    "license": "MIT",
+    "keywords": ["mail"],
+
+    "authors": [
+        {
+            "name": "Gonzalo Ayuso",
+            "email": "gonzalo123@gmail.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "v5.0.2",
+        "twig/twig": "v1.13.2",
+        "symfony/yaml": "v2.3.4",
+        "symfony/dependency-injection": "v2.3.4",
+        "symfony/config": "v2.3.4",
+        "symfony/console": "v2.3.4"
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=3.7.24"
+    },
+    "autoload": {
+        "psr-0": { "": "src" }
+
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

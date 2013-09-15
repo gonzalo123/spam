@@ -1,0 +1,13 @@
+parameters:
+  twig.path: %base.path%/templates
+  twig.conf:
+    auto_reload: true
+
+services:
+  twigLoader:
+    class: Twig_Loader_Filesystem
+    arguments: [%twig.path%]
+
+  twig:
+    class: Twig_Environment
+    arguments: [@twigLoader, %twig.conf%]

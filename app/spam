@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+include __DIR__ . "/../vendor/autoload.php";
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+
+$container = new ContainerBuilder();
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/conf'));
+$loader->load('services.yml');
+
+$container->setParameter('base.path', __DIR__);
+$application = new Application();
+$application->add($container->get('spam.command'));
+$application->run();

@@ -1,0 +1,17 @@
+services:
+  swift.message:
+    class: Swift_Message
+    calls:
+      - [setSubject, [%mail.subject%]]
+      - [setFrom, [%mail.from.mail%: %mail.from.name%]]
+
+  swift.transport:
+    class: Swift_SmtpTransport
+    arguments: [%mail.smtp.host%, %mail.smtp.port%, %mail.smtp.encryption%]
+    calls:
+      - [setUsername, [%mail.smtp.username%]]
+      - [setPassword, [%mail.smtp.password%]]
+
+  swift.mailer:
+    class: Swift_Mailer
+    arguments: [@swift.transport]

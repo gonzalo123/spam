@@ -1,0 +1,11 @@
+parameters:
+  mail.list: mailList.csv
+  mail.subject: mail subject
+  mail.from.name: My Name
+  mail.from.mail: my_email@mail.com
+
+  mail.smtp.username: my_smtp_username
+  mail.smtp.password: my_smtp_password
+  mail.smtp.host: smtp.gmail.com
+  mail.smtp.port: 465
+  mail.smtp.encryption: ssl
