@@ -8,6 +8,7 @@ Script to send personalized emails according to csv files.
 * Rename app/templates/mail.dist.csv to app/templates/mail.csv and use your own email template.
 
 ## Run
+
 ```
 ➜  spam  ./app/spam
 Console Tool
