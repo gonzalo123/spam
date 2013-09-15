@@ -12,7 +12,8 @@ Script to send personalized emails according to csv files.
 ## Run
 
 ```
-➜  spam git:(master) ./app/spam
+./app/spam
+
 Console Tool
 
 Usage:
@@ -36,7 +37,8 @@ spam
 ```
 
 ```
-➜  spam git:(master) ./app/spam help spam:run
+./app/spam help spam:run
+
 Usage:
  spam:run
 
