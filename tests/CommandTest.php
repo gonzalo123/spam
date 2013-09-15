@@ -22,17 +22,15 @@ class CommnadTest extends \PHPUnit_Framework_TestCase
         ];
         $parser->expects($this->any())->method('getData')->will($this->returnValue($data));
 
-        $twig = $this->getMockBuilder('Twig_Environment')->disableOriginalConstructor()->getMock();
-        $twig->expects($this->any())->method('render')->will($this->returnValue(true));
-
-        $mailer = $this->getMockBuilder('Mailer')->disableOriginalConstructor()->getMock();
+        $dispatcher = $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcher')->disableOriginalConstructor()->getMock();
+        $spammer = $this->getMockBuilder('Spammer')->disableOriginalConstructor()->getMock();
 
         $application = new Application();
 
         $command = new SpamCommand();
         $command->setParser($parser);
-        $command->setTwig($twig);
-        $command->setMailer($mailer);
+        $command->setDispatcher($dispatcher);
+        $command->setSpammer($spammer);
 
         $application->add($command);
 
@@ -42,8 +40,6 @@ class CommnadTest extends \PHPUnit_Framework_TestCase
         $commandTester->execute(['command' => $command->getName()]);
 
         $this->assertRegExp('/Sending mails .../', $commandTester->getDisplay());
-        $this->assertRegExp('/Mail sent to:mail@mail.com/', $commandTester->getDisplay());
-        $this->assertRegExp('/Mail sent to:superman@mail.com/', $commandTester->getDisplay());
         $this->assertRegExp('/End/', $commandTester->getDisplay());
     }
 }

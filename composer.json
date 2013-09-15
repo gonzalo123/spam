@@ -15,7 +15,8 @@
         "symfony/yaml": "v2.3.4",
         "symfony/dependency-injection": "v2.3.4",
         "symfony/config": "v2.3.4",
-        "symfony/console": "v2.3.4"
+        "symfony/console": "v2.3.4",
+        "symfony/event-dispatcher": "v2.3.4"
 
     },
     "require-dev": {

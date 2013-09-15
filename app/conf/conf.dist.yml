@@ -1,4 +1,6 @@
 parameters:
+  mail.do.not.send.mails: false
+
   mail.list: %base.path%/mailList.csv
   mail.subject: mail subject
   mail.from.name: My Name

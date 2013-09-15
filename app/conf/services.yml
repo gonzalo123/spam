@@ -14,11 +14,20 @@ services:
 
   mailer:
     class: Mailer
+    calls:
+      - [setNoMail, [%mail.do.not.send.mails%]]
     arguments: [@swift.mailer, @swift.message]
 
   spam.command:
     class: SpamCommand
     calls:
       - [setParser, [@parser]]
-      - [setTwig, [@twig]]
-      - [setMailer, [@mailer]]
+      - [setDispatcher, [@dispatcher]]
+      - [setSpammer, [@spammer]]
+
+  spammer:
+    class: Spammer
+    arguments: [@twig, @mailer, @dispatcher]
+
+  dispatcher:
+    class: Symfony\Component\EventDispatcher\EventDispatcher
