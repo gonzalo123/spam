@@ -20,7 +20,8 @@ class Mailer
     public function sendMessage($to, $body)
     {
         $this->swiftMessage->setTo($to);
-        $this->swiftMessage->setBody($body);
+        $this->swiftMessage->setBody(strip_tags($body));
+        $this->swiftMessage->addPart($body, 'text/html');
 
         return $this->noMail ? false : $this->swiftMailer->send($this->swiftMessage);
     }
