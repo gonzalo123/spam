@@ -21,8 +21,13 @@ class SpamCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln("Sending mails ...");
-        $this->dispatcher->addListener(MailEvent::EVENT_MAIL_SENT, function (MailEvent $event) use ($output) {
+        $this->dispatcher->addListener(MailEvent::EVENT_MAIL_SENT, function (MailEvent\Sent $event) use ($output) {
                 $output->writeln("<info>Mail sent to</info>: <fg=black;bg=cyan>{$event->getTo()}</fg=black;bg=cyan>");
+            }
+        );
+
+        $this->dispatcher->addListener(MailEvent::EVENT_SENT_ERROR, function (MailEvent\Error $event) use ($output) {
+                $output->writeln("<error>Error sending mail to</error>: <fg=black;bg=cyan>{$event->getTo()}</fg=black;bg=cyan> Error: " . $event->getException()->getMessage());
             }
         );
 

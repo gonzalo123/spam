@@ -19,9 +19,12 @@ class Spammer
     {
         foreach ($data as $item) {
             $to = $item['email'];
-
-            $this->mailer->sendMessage($to, $this->twig->render('mail.twig', $item));
-            $this->dispatcher->dispatch(MailEvent::EVENT_MAIL_SENT, new MailEvent($to));
+            try {
+                $this->mailer->sendMessage($to, $this->twig->render('mail.twig', $item));
+                $this->dispatcher->dispatch(MailEvent::EVENT_MAIL_SENT, new MailEvent\Sent($to));
+            } catch (\Exception $e) {
+                $this->dispatcher->dispatch(MailEvent::EVENT_SENT_ERROR, new MailEvent\Error($to, $e));
+            }
         }
     }
 }
